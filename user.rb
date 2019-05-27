@@ -3,16 +3,10 @@ Use a forwarding relationship to extract the authentication behaviour from User 
 =end
 
 class User
-  def initialize(name, bio, age, password)
+  def initialize(name, bio, age)
     @name = name
     @bio = bio
     @age = age
-    @password = password
-  end
-
-  def authenticate(candidate_password)
-    return true if candidate_password == @password
-    false
   end
 
   def profile
