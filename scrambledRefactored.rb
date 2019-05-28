@@ -31,7 +31,7 @@ class Advancing
 
   def scramble_by
     scrambled_or_plain_chars = @contents.chars
-    plain_or_scrambled_chars = scrambled_chars.map do |char|
+    plain_or_scrambled_chars = scrambled_or_plain_chars.map do |char|
       (char.ord - @steps).chr
     end
     @contents = plain_or_scrambled_chars.join
@@ -41,7 +41,9 @@ end
 class Tests
   def run
     ScrambledDiary.new("hello lala").way_of_scabmbling(Advancing.new("hello lala", -2))
-    ScrambledDiary.new("hello lala").way_of_scabmbling(Reversing("hello lala"))
+    ScrambledDiary.new("hello lala").way_of_scabmbling(Reversing.new("hello lala"))
     ScrambledDiary.new("hello lala").way_of_scabmbling(Advancing.new("hello lala", 2))
   end
 end
+
+Tests.new.run
